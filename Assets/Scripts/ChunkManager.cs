@@ -10,11 +10,13 @@ using UnityEngine.Rendering;
 
 public class ChunkManager : MonoBehaviour
 {
+    /// <summary>
+    /// last thing I would like to make is a randomiser button that changes all the values and results in a compleety random seed and noise scale and island radius
+    /// </summary>
     public static ChunkManager instance;
     
     [PropertySpace(10)]
     [Title("Island Settings")]
-
 
 
     [ValueDropdown("WorldSizes")]
