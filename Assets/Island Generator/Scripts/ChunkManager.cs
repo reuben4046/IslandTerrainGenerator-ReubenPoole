@@ -18,6 +18,7 @@ public class ChunkManager : MonoBehaviour
     [Title("Island Settings")]
 
     //change the size of the terrain between three options (4x4, 8x8, 16x16)
+    [InfoBox("Change the world size value to control the size of the terrain.")]
     [ValueDropdown("WorldSizes")]
     public Vector2 worldSize;
     private IEnumerable WorldSizes = new ValueDropdownList<Vector2>()
@@ -28,7 +29,7 @@ public class ChunkManager : MonoBehaviour
     };
 
 
-    [InfoBox("Change the resolution value to control the amount of vertices in the terrain mesh.")]
+    [InfoBox("Change the resolution to control the amount of vertices in the terrain mesh.")]
     [ValueDropdown("ResolutionSizes")]
     public int resolution = 16;
     private IEnumerable ResolutionSizes = new ValueDropdownList<int>()
@@ -39,9 +40,15 @@ public class ChunkManager : MonoBehaviour
     };
 
     //change the radius of the island and the max radius
-    [PropertyRange(0f, "maxIslandRadius")]
-    public float islandRadius = 900f;
-    public float maxIslandRadius = 1000f;
+    [InfoBox("Make sure to set the radius of the island to the same size as the world size.")]
+    [ValueDropdown("IslandSize")]
+    public float islandRadius = 300f;
+    private IEnumerable IslandSize = new ValueDropdownList<float>()
+    {
+    { "Small", 300f },
+    { "Medium", 600f },
+    { "Large", 1200f },
+    };
 
     [PropertySpace(10)]
     [Title("Noise Settings")]
@@ -54,6 +61,7 @@ public class ChunkManager : MonoBehaviour
 
     //change the seed of the noise, I have also used the odin inspector to create a button in the inspector that allows users of this package to randomize the seed
     [PropertyOrder(2)]
+    [InfoBox("Change the Seed value to generate a different terrain. Also use the Randomize Seed button to randomize the seed.")]
     [MinValue(0f)]
     [InlineButton("RandomSeed", SdfIconType.Dice6Fill, "Randomize Seed")]
     public int seed = 0;
@@ -64,6 +72,7 @@ public class ChunkManager : MonoBehaviour
 
     //change the height of the terrain
     [PropertyOrder(3)]
+    [InfoBox("Change the Height value to control the height of the island.")]
     [MinValue(0f)]
     [PropertyRange(0f, 1000f)]
     public float height = 150f;
@@ -74,6 +83,7 @@ public class ChunkManager : MonoBehaviour
     float islandPositionY = 0f;
 
     [PropertyOrder(4)]
+    [InfoBox("Click on this button to toggle the use of the secondary noise. This will make the island more or less bumpy.")]
     [ShowIf("useSecondaryNoise")]
     [Button(ButtonSizes.Large), GUIColor(0, 1, 0)]
     private void SecondaryNoiseON()
@@ -83,6 +93,7 @@ public class ChunkManager : MonoBehaviour
         useSecondaryNoise = !useSecondaryNoise;
     }
     [PropertyOrder(4)]
+    [InfoBox("Click on this button to toggle the use of the secondary noise. This will make the island more or less bumpy.")]
     [HideIf("useSecondaryNoise")]
     [Button(ButtonSizes.Large), GUIColor(1, 0.2f, 0)]
     private void SecondaryNoiseOFF()

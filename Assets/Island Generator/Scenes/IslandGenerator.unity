@@ -564,8 +564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worldSize: {x: 4, y: 4}
   resolution: 64
-  islandRadius: 264
-  maxIslandRadius: 269.8
+  islandRadius: 300
   noiseIntensity: 0.01178
   seed: 3386
   height: 366
