@@ -1,0 +1,9 @@
+* e597506 (HEAD -> main, origin/main, origin/HEAD) added a few more info boxes in the inspector to make this package easier to use
+* fe3a8e7 reoganising
+* dbf9482 reorganised folders
+* 015cdd1 commented out all of the code and used odin inspector to get a nice inspector working
+* 81bceae s
+* ca12d08 used odin inspector to clean up the inspector and make it a more usable package
+* 4fa1a60 s
+* db0f62c putting project into github
+* ad428c1 Initial commit
